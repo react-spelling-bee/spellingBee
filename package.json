@@ -1,11 +1,10 @@
 {
-  "name": "spelling-bee",
+  "name": "spellingbee-backend",
   "version": "1.0.0",
   "description": "Spelling Bee app for Code 401 Midterm",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "voiceLS": "export GOOGLE_APPLICATION_CREDENTIALS=home/lorin/cf/401/spellingBee/cloud-authentication.json | node index.js",
     "watch": "nodemon index.js",
     "test-watch": "jest --watchAll",
     "test": "jest --coverage --detectOpenHandles",
@@ -38,10 +37,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ladybees/spellingBee.git"
+    "url": "git+https://github.com/react-spelling-bee/spellingbee-backend.git"
   },
   "bugs": {
-    "url": "https://github.com/ladybees/spellingBee/issues"
+    "url": "https://github.com/react-spelling-bee/spellingbee-backend/issues"
   },
-  "homepage": "https://github.com/ladybees/spellingBee#readme"
+  "homepage": "https://github.com/react-spelling-bee/spellingbee-backend/#readme"
 }
