@@ -93,7 +93,7 @@ async function textToSpeech(numberOfQuestions, difficulty){
   try {
     let words;
     if (difficulty === 'easy'){
-      words = await randomWord(25);
+      words = await randomWord(50);
     } else {
       words = await harderRandomWords(difficulty, numberOfQuestions);
     }
