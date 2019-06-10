@@ -44,8 +44,9 @@ function getData(url){
             resWord = resWord.replace(/:3/g, '');
           }
 
+          const URL = 'https://spellingbee-backend.herokuapp.com' || 'http://localhost:3000';
           let sentence = resSent.replace(/\{\/?it}/g,'');
-          return new Word(resWord, sentence, `./audio/${resWord}.mp3`, `./audio/${resWord}-sentence.mp3`);
+          return new Word(resWord, sentence, `${URL}/audio/${resWord}.mp3`, `${URL}/audio/${resWord}-sentence.mp3`);
           }
         }
       // console.log(wordsAndSentence)
@@ -87,13 +88,12 @@ async function harderRandomWords(difficulty, numberOfQuestions){
 
 async function textToSpeech(numberOfQuestions, difficulty){
 // H'Liana - Using Promise.all to make multiple API Requests to send word to Webster Dictionary API
-
   const wordsAndSentence = [];
 
   try {
     let words;
     if (difficulty === 'easy'){
-      words = await randomWord(50);
+      words = await randomWord(25);
     } else {
       words = await harderRandomWords(difficulty, numberOfQuestions);
     }

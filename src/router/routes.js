@@ -28,7 +28,7 @@ router.get('/scores', getScores);
 async function startGame(request, response, next){
   let name = request.body.name;
   let difficulty = request.body.difficulty;
-  let number = request.body.number;
+  let number = request.body.numberOfQuestions;
 
   let directory = `${__dirname}/../../public/audio`;
 
@@ -47,7 +47,7 @@ async function startGame(request, response, next){
 
   try {
     let words = await textToSpeech(number, difficulty);
-    response.status(200).render('game', {name: name, difficulty: difficulty, number: number, words: words});
+    response.status(200).send(words);
   } catch(e) {
     next(e);
   }
@@ -56,7 +56,7 @@ async function startGame(request, response, next){
 function postScore(request, response, next){
   model.post(request.body)
     .then(result => {
-      response.status(200).render('score', {score: result})
+      response.status(200).send(result)
     })
     .catch(next);
 }
@@ -64,7 +64,7 @@ function postScore(request, response, next){
 function getScores(request, response, next){
   model.get()
     .then(result => {
-      response.status(200).render('scores', {scores: result})
+      response.status(200).send(result)
     })
     .catch(next);
 }
